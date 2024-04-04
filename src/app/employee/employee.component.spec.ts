@@ -1,4 +1,4 @@
-import {async, TestBed} from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import {Component} from '@angular/core';
 
 import {EmployeeComponent} from './employee.component';
@@ -26,7 +26,7 @@ class CardContentComponent {
 const employeeServiceSpy = jasmine.createSpyObj('EmployeeService', ['getAll', 'get', 'save', 'remove']);
 
 describe('EmployeeComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         EmployeeComponent,
@@ -39,7 +39,7 @@ describe('EmployeeComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the component', async(() => {
+  it('should create the component', waitForAsync(() => {
     const fixture = TestBed.createComponent(EmployeeComponent);
     const comp = fixture.debugElement.componentInstance;
     comp.employee = {

@@ -1,4 +1,4 @@
-import {async, TestBed} from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import {Component, Input} from '@angular/core';
 
 import {EmployeeListComponent} from './employee-list.component';
@@ -20,7 +20,7 @@ class GridTileComponent {
 const employeeServiceSpy = jasmine.createSpyObj('EmployeeService', ['getAll', 'get', 'save', 'remove']);
 
 describe('EmployeeListComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         EmployeeListComponent,
@@ -34,7 +34,7 @@ describe('EmployeeListComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the component', async(() => {
+  it('should create the component', waitForAsync(() => {
     const fixture = TestBed.createComponent(EmployeeListComponent);
     const comp = fixture.debugElement.componentInstance;
     expect(comp).toBeTruthy();
